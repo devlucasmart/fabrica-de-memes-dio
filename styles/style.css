@@ -13,7 +13,9 @@ body{
 .logo{
     display: flex;
     align-items: center;
+    
     justify-content: center;
+    
     padding-top: 10px;
     padding-bottom: 20px;
 }
@@ -26,7 +28,7 @@ body{
 #display-image{
     width: 100%;
     height: 500px;
-    background-image: url('/pictures/logo.jpeg');
+    background-image: url('/pictures/logo.png');
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
