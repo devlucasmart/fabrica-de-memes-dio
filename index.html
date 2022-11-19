@@ -16,7 +16,7 @@
                     <img src="pictures/logo.png">
 
                 </div>
-                <div class="app-image">
+                <div class="app-image" id="downlabled">
                     <textarea
                         name=""
                         class="text-box"
@@ -34,9 +34,7 @@
                             aria-multiline="true"></textarea>
                         </div>
                         <div class="app-photo-picker">
-                            <select id="meme-list">
-                                <option value="lucas">LUCAS</option>
-                            </select>
+                            <select id="memes-list" onchange="changeMemePicture(this.value)"></select>
                             <input 
                                 type="file" 
                                 id="image-input"
@@ -48,5 +46,22 @@
                         </div>
                     </div>
                 </div>
+                <script src="./javascript/scripts.js"></script>
+                <script src="./javascript/html2Canvas.js"></script>
+                <script>
+                    document.getElementById("btn-download").onclick = () =>{
+                        const screenshotPrint = document.querySelector("#downlabled")
+
+                        html2canvas(screenshotPrint).then((canvas)=>{
+                            const base64Image = canvas.toDataURL("image/png")
+                            let anchor = document.createElement("a")
+                            anchor.setAttribute("href", base64Image)
+                            anchor.setAttribute("download", "my-meme.png")
+                            anchor.click()
+                            anchor.remove()
+                        })
+
+                    }
+                </script>
             </body>
         </html>
